@@ -8,9 +8,6 @@ end
 
 deployment do
   delivery :capistrano do
-    #roles :dev => HOST_IP
-    #user HOST_USER
-    #password HOST_PWD
     recipes 'deploy'
   end
 
