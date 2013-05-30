@@ -3,6 +3,13 @@ package :base do
   requires :update, :upgrade, :sudo
 end
 
+package :http_proxy do
+  description "set http(s) proxy"
+
+  runner "export http_proxy=http://proxy.houston.hp.com:8080"
+  runner "export https_proxy=http://proxy.houston.hp.com:8080"
+end
+
 package :update do
   description "update lib sources"
   runner "apt-get update"

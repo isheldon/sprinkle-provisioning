@@ -1,9 +1,15 @@
-require "./packages/update"
+require "./config"
+require "./packages/base"
+require "./packages/tools"
 require "./packages/git"
+require "./packages/user"
 
 policy :stack, :roles => :dev do
-  requires :apt_update
-  requires :git
+  requires :http_proxy
+  requires :base
+  requires :tools
+  requires :opt_user_new, :opt_user_pwd, :opt_user_keygen
+  requires :git, :git_user_conf
 end
 
 deployment do
