@@ -1,6 +1,6 @@
 package :base do
   description "Basic package applies to all machines"
-  requires :update, :upgrade, :sudo
+  requires :update, :apt_utils, :upgrade, :sudo
 end
 
 package :http_proxy do
@@ -22,6 +22,15 @@ end
 package :upgrade do
   description "system upgrade"
   runner "apt-get --assume-yes --quiet upgrade"
+end
+
+package :apt_utils do
+  description "install apt-utils"
+  apt "apt-utils"
+
+  verify do
+    has_apt "apt-utils"
+  end
 end
 
 package :sudo do
