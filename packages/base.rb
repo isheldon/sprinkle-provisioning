@@ -4,10 +4,14 @@ package :base do
 end
 
 package :http_proxy do
-  description "set http(s) proxy"
+  description "set http(s) proxy if needed"
 
-  runner "export http_proxy=http://proxy.houston.hp.com:8080"
-  runner "export https_proxy=http://proxy.houston.hp.com:8080"
+  if NEED_PROXY
+    setting_file = "/root/.bashrc.d/set_http_proxy" 
+    transfer "assets/set_http_proxy", setting_file do
+      post :install, "chmod +x #{setting_file}"
+    end
+  end
 end
 
 package :update do
