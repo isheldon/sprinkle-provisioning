@@ -1,17 +1,37 @@
-package :git do
-  description "install git"
+package :tools do
+  description "Usefull tools for most environments"
+  requires :build_essential, :wget, :curl, :vim
+end
 
-  apt "git"
-
+package :build_essential do
+  description "install build_essential"
+  apt "build-essential"
   verify do
-    has_executable "git"
+    has_apt 'build-essential'
+  end 
+end
+
+package :wget do
+  description 'install wget'
+  apt 'wget'
+  verify do
+    has_executable 'wget'
   end
 end
 
-package :git_user do
-  description "configure git user"
-  requires :git
-
-  runner "git config --global user.name 'sheldon'"
-  runner "git config --global user.email 'sheldon.xu@hp.om'"
+package :curl do
+  description 'curl'
+  apt 'curl'
+  verify do
+    has_executable 'curl'
+  end
 end
+
+package :vim do
+  description 'vim'
+  apt 'vim'
+  verify do
+    has_executable 'vim'
+  end
+end
+
