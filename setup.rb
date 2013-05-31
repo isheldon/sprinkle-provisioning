@@ -1,15 +1,24 @@
 require "./config"
 require "./packages/base"
 require "./packages/tools"
-require "./packages/git"
 require "./packages/user"
+require "./packages/git"
+require "./packages/langs"
 
 policy :stack, :roles => :dev do
   requires :http_proxy
   requires :base
   requires :tools
-  requires :opt_user_new, :opt_user_pwd, :opt_user_keygen
-  requires :git, :git_user_conf
+
+  requires :opt_user_new
+  requires :opt_user_pwd
+  requires :opt_user_keygen
+
+  requires :git
+  requires :git_user_conf
+
+  requires :openjdk_7
+  requires :ruby
 end
 
 deployment do

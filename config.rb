@@ -1,4 +1,4 @@
-NEED_PROXY = true
+NEED_PROXY = false
 
 OPT_USER = 'sheldon'
 OPT_USER_PWD = 'sheldonpwd'

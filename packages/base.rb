@@ -6,11 +6,13 @@ end
 package :http_proxy do
   description "set http(s) proxy if needed"
 
+  setting_file = "/root/.bashrc.d/set_http_proxy" 
   if NEED_PROXY
-    setting_file = "/root/.bashrc.d/set_http_proxy" 
     transfer "assets/set_http_proxy", setting_file do
       post :install, "chmod +x #{setting_file}"
     end
+  else
+    runner "rm -f #{setting_file}"
   end
 end
 
