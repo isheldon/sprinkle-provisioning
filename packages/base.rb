@@ -40,6 +40,6 @@ package :sudo do
   apt "sudo"
 
   verify do
-    has_apt "sudo"
+    has_executable "sudo"
   end
 end
