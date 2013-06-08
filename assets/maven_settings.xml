@@ -39,7 +39,7 @@
       <id>internal</id>
       <mirrorOf>*</mirrorOf>
       <name>nexus</name>
-      <url>NEXUS_URL/content/groups/public/</url> 
+      <url>NEXUS_URLcontent/groups/public/</url> 
     </mirror>
   </mirrors>
   

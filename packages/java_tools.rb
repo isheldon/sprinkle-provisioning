@@ -10,6 +10,7 @@ package :apache_maven do
   end
 
   # configure
+  transfer "assets/maven_settings.xml", "/tmp/maven_settings.xml"
   config_pgm = "/tmp/config_maven.sh"
   transfer "assets/config_maven.sh", config_pgm do
     post :install, "chmod +x #{config_pgm}"

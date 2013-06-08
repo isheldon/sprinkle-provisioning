@@ -4,6 +4,7 @@ require "./packages/tools"
 require "./packages/user"
 require "./packages/git"
 require "./packages/langs"
+require "./packages/java_tools"
 
 policy :basic, :roles => :dev do
   requires :http_proxy
@@ -19,6 +20,8 @@ policy :basic, :roles => :dev do
 
   requires :openjdk_7
   requires :ruby
+
+  requires :apache_maven
 end
 
 deployment do
