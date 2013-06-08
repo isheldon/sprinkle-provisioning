@@ -5,7 +5,7 @@ require "./packages/user"
 require "./packages/git"
 require "./packages/langs"
 
-policy :stack, :roles => :dev do
+policy :basic, :roles => :dev do
   requires :http_proxy
   requires :base
   requires :tools
