@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0" 
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+  <localRepository>/opt/maven_repo</localRepository>
+
+  <pluginGroups>
+  </pluginGroups>
+
+  <proxies>
+    <proxy>
+      <id>proxy</id>
+      <active>false</active>
+      <protocol>http</protocol>
+      <username></username>
+      <password></password>
+      <host>proxy_host</host>
+      <port>8080</port>
+      <nonProxyHosts>localhost</nonProxyHosts>
+    </proxy>
+  </proxies>
+
+  <servers>
+    <server>
+      <id>snapshots</id>
+      <username>USER</username>
+      <password>PWD</password>
+    </server>
+    <server>
+      <id>release</id>
+      <username>USER</username>
+      <password>PWD</password>
+    </server>
+  </servers>
+
+  <mirrors>
+    <mirror>
+      <id>internal</id>
+      <mirrorOf>*</mirrorOf>
+      <name>nexus</name>
+      <url>NEXUS_URL/content/groups/public/</url> 
+    </mirror>
+  </mirrors>
+  
+ 
+  <profiles>
+      <profile>
+          <id>nexus</id>
+          <repositories>
+              <repository>
+                  <id>nexus</id>
+                  <name>nexus</name>
+                  <url>http://central/</url>
+                  <releases><enabled>true</enabled></releases>
+                  <snapshots><enabled>true</enabled></snapshots>
+              </repository>
+          </repositories>
+          <pluginRepositories>
+              <pluginRepository>
+                  <id>central</id>
+                  <name>nexus</name>
+                  <url>http://central/</url>
+                  <releases><enabled>true</enabled></releases>
+                  <snapshots><enabled>true</enabled></snapshots>
+              </pluginRepository>
+          </pluginRepositories>
+      </profile>
+  </profiles>
+
+  <activeProfiles>
+    <activeProfile>nexus</activeProfile>
+  </activeProfiles>
+
+</settings>
