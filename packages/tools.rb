@@ -1,6 +1,6 @@
 package :tools do
   description "Usefull tools for most environments"
-  requires :build_essential, :wget, :curl, :vim
+  requires :build_essential, :wget, :curl, :vim, :vim_pathogen, :vim_nerdtree 
 end
 
 package :build_essential do
@@ -38,8 +38,8 @@ end
 package :vim_pathogen do
   descrition "install vim pathogen plugin"
 
-  runner "mkdir -p ~/.vim/autoload ~/.vim/bundle"
-  runner "curl -Sso ~/.vim/autoload/pathogen.vim https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim"
+  runner "su #{OPT_USER} -c 'mkdir -p ~/.vim/autoload ~/.vim/bundle'"
+  runner "su #{OPT_USER} -c 'curl -Sso ~/.vim/autoload/pathogen.vim https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim'"
 
   requires :curl, :vim
 end
@@ -47,7 +47,8 @@ end
 package :vim_nerdtree do
   descrition "install vim nerdtree plugin"
 
-  runner "cd ~/.vim/bundle; git clone https://github.com/scrooloose/nerdtree.git"
+  runner "su #{OPT_USER} -c 'cd ~/.vim/bundle; git clone https://github.com/scrooloose/nerdtree.git'"
 
   requires :vim_pathogen
 end
+
