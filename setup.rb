@@ -9,11 +9,12 @@ require "./packages/java_tools"
 policy :basic, :roles => :dev do
   requires :http_proxy
   requires :base
-  requires :tools
 
   requires :opt_user_new
   requires :opt_user_pwd
   requires :opt_user_keygen
+
+  requires :tools
 
   requires :git
   requires :git_user_conf
