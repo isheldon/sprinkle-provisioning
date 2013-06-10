@@ -29,14 +29,11 @@ end
 
 package :vim do
   description 'vim'
-  apt 'vim'
-  verify do
-    has_executable 'vim'
-  end
+  apt %w(vim vim-gui-common vim-runtime)
 end
 
 package :vim_pathogen do
-  descrition "install vim pathogen plugin"
+  description "install vim pathogen plugin"
 
   runner "su #{OPT_USER} -c 'mkdir -p ~/.vim/autoload ~/.vim/bundle'"
   runner "su #{OPT_USER} -c 'curl -Sso ~/.vim/autoload/pathogen.vim https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim'"
@@ -45,7 +42,7 @@ package :vim_pathogen do
 end
 
 package :vim_nerdtree do
-  descrition "install vim nerdtree plugin"
+  description "install vim nerdtree plugin"
 
   runner "su #{OPT_USER} -c 'cd ~/.vim/bundle; git clone https://github.com/scrooloose/nerdtree.git'"
 
