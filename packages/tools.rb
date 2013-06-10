@@ -35,3 +35,19 @@ package :vim do
   end
 end
 
+package :vim_pathogen do
+  descrition "install vim pathogen plugin"
+
+  runner "mkdir -p ~/.vim/autoload ~/.vim/bundle"
+  runner "curl -Sso ~/.vim/autoload/pathogen.vim https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim"
+
+  requires :curl, :vim
+end
+
+package :vim_nerdtree do
+  descrition "install vim nerdtree plugin"
+
+  runner "cd ~/.vim/bundle; git clone https://github.com/scrooloose/nerdtree.git"
+
+  requires :vim_pathogen
+end
