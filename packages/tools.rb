@@ -29,7 +29,12 @@ end
 
 package :vim do
   description 'vim'
+  
   apt %w(vim vim-gui-common vim-runtime)
+
+  vimrc_file = "/home/#{OPT_USER}/.vimrc"
+  transfer "assets/vimrc", vimrc_file
+  runner "chown #{OPT_USER}:#{OPT_USER} #{vimrc_file}"
 end
 
 package :vim_pathogen do
@@ -37,6 +42,7 @@ package :vim_pathogen do
 
   runner "su #{OPT_USER} -c 'mkdir -p ~/.vim/autoload ~/.vim/bundle'"
   runner "su #{OPT_USER} -c 'curl -Sso ~/.vim/autoload/pathogen.vim https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim'"
+  runner "su #{OPT_USER} -c 'echo \"call pathogen#infect()\" >>  ~/.vimrc'"
 
   requires :curl, :vim
 end
