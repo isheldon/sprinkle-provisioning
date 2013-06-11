@@ -1,6 +1,6 @@
 package :base do
   description "Basic package applies to all machines"
-  requires :update, :apt_utils, :upgrade, :sudo
+  requires :update, :apt_utils, :upgrade, :sudo, :hostname
 end
 
 package :http_proxy do
@@ -43,3 +43,9 @@ package :sudo do
     has_executable "sudo"
   end
 end
+
+package :hostname do
+  description "set hostname"
+  runner "echo #{HOSTNAME} > /etc/hostname"
+end
+
