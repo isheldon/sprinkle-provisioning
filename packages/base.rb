@@ -48,3 +48,4 @@ package :hostname do
   description "set hostname"
   runner "echo #{HOSTNAME} > /etc/hostname"
 end 
+
