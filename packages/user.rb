@@ -39,3 +39,13 @@ package :opt_user_keygen do
   end
 end
 
+package :opt_user_bash_profile do
+  description "set operator user's .bash_profile file"
+  requires :opt_user_new
+
+  bash_profile = "/home/#{OPT_USER}/.bash_profile"
+  transfer "assets/bash_profile", bash_profile do
+    post :install, "chown -R #{OPT_USER}:#{OPT_USER} #{bash_profile}"
+  end
+end
+

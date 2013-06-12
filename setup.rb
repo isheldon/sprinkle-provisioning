@@ -13,6 +13,7 @@ policy :basic, :roles => :dev do
   requires :opt_user_new
   requires :opt_user_pwd
   requires :opt_user_keygen
+  requires :opt_user_bash_profile
 
   requires :tools
 

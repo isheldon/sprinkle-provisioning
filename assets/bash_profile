@@ -1,0 +1,13 @@
+alias ls='ls --color=auto'
+alias ll='ls -l'
+alias la='ls -a'
+alias lla='ls -la'
+
+alias gpl='git pull'
+alias gst='git status'
+alias gad='git add'
+alias gcm='git commit'
+alias gps='git push'
+alias gbr='git branch'
+
+set -o vi
