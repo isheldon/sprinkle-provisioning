@@ -30,7 +30,7 @@ end
 package :vim do
   description 'vim'
   
-  apt %w(vim vim-gui-common vim-runtime)
+  apt %w(vim vim-gui-common vim-runtime vim-scripts)
 
   vimrc_file = "/home/#{OPT_USER}/.vimrc"
   transfer "assets/vimrc", vimrc_file

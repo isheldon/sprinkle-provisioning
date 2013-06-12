@@ -1,5 +1,7 @@
 NEED_PROXY = false
 
+HOSTNAME = 'shelidev'
+
 OPT_USER = 'sheldon'
 OPT_USER_PWD = 'sheldonpwd'
 
