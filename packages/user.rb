@@ -32,7 +32,7 @@ package :opt_user_keygen do
   description "generate user ssh key"
   requires :opt_user_new
 
-  runner "su #{OPT_USER} -c \"ssh-keygen -f ~/.ssh/id_rsa -N ''\""
+  runner "su #{OPT_USER} -c \"ssh-keygen -C #{OPT_USER}@#{HOSTNAME} -f ~/.ssh/id_rsa -N ''\""
 
   verify do
     has_file "/home/#{OPT_USER}/.ssh/id_rsa"
