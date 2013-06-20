@@ -1,6 +1,6 @@
 package :tools do
   description "Usefull tools for most environments"
-  requires :build_essential, :wget, :curl, :vim, :vim_pathogen, :vim_nerdtree 
+  requires :build_essential, :wget, :curl, :apache, :vim, :vim_pathogen, :vim_nerdtree 
 end
 
 package :build_essential do
@@ -24,6 +24,14 @@ package :curl do
   apt 'curl'
   verify do
     has_executable 'curl'
+  end
+end
+
+package :apache do
+  description 'apache web server'
+  apt 'apache2'
+  verify do
+    has_apt 'apache2'
   end
 end
 
