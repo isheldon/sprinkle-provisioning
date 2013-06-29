@@ -7,8 +7,8 @@ package :openjdk_7 do
 end
 
 package :ruby do
-  description "install ruby (default version)"
-  apt "ruby"
+  description "install ruby 1.9.1(3)"
+  apt "ruby1.9.1-full"
   verify do
     has_executable "ruby"
   end
